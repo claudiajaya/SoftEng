@@ -1,11 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InfoGenZ.id</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      background-color: #b80dfcd1;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    nav {
+      background-color: hwb(215 0% 20%);
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    article {
+      background-color: white;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    article h2 {
+      margin-top: 0;
+    }
+    footer {
+      background-color: hsl(60, 98%, 52%);
+      color: rgba(86, 18, 149, 0.645);
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode article {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+    body.dark-mode header {
+      background-color: #5c07a4;
+    }
+    body.dark-mode nav {
+      background-color: #0b2c57;
+    }
+    body.dark-mode nav a {
+      color: #ffd700;
+    }
+    body.dark-mode footer {
+      background-color: #333333;
+      color: #ffd700;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+      transition: background-color 0.3s;
+    }
+    .dark-mode-toggle:hover {
+      background-color: #084298;
+    }
+    .poll {
+      background-color: #fff;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .poll h3 {
+      margin-top: 0;
+    }
+    .poll button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0d6efd;
+      color: white;
+      cursor: pointer;
+    }
+    .poll button:hover {
+      background-color: #084298;
+    }
+    /* Styling for poll result */
+    #pollResult {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello world</h1>
+
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+<header>
+  <h1>InfoGenZ.id</h1>
+  <p>Berita Gen Z — Freedom para Gen Z</p>
+</header>
+
+<nav>
+  <a href="#">Beranda</a>
+  <a href="#">Tren</a>
+  <a href="#">Teknologi</a>
+  <a href="#">Lifestyle</a>
+  <a href="#">Komunitas</a>
+</nav>
+
+<div class="container">
+
+  <div class="poll">
+    <h3>Menurut kamu, mana yang paling penting buat masa depan?</h3>
+    <form id="pollForm">
+      <input type="radio" name="poll" value="Teknologi AI" id="ai"> Teknologi AI<br>
+      <input type="radio" name="poll" value="Lingkungan Hidup" id="env"> Lingkungan Hidup<br>
+      <input type="radio" name="poll" value="Kesehatan Mental" id="mental"> Kesehatan Mental<br>
+      <input type="radio" name="poll" value="Keadilan Sosial" id="justice"> Keadilan Sosial<br>
+      <button type="button" onclick="submitPoll()">Vote Sekarang!</button>
+    </form>
+    <div id="pollResult" style="display:none;"></div>
+  </div>
+
+  <article>
+    <h2>Gen Z Dominasi Tren Fashion Berkelanjutan</h2>
+    <p><em>30 April 2025</em></p>
+    <p>Generasi Z di Indonesia semakin tertarik pada fashion ramah lingkungan. Thrifting, upcycling, dan produk lokal berkelanjutan menjadi pilihan utama dalam gaya hidup mereka.</p>
+  </article>
+
+  <article>
+    <h2>Platform AI Jadi Alat Bantu Belajar Favorit Gen Z</h2>
+    <p><em>30 April 2025</em></p>
+    <p>Aplikasi berbasis AI seperti tutor virtual dan chatbot edukasi kian populer di kalangan pelajar dan mahasiswa Gen Z. Mereka memanfaatkannya untuk belajar lebih efisien dan interaktif.</p>
+  </article>
+
+  <article>
+    <h2>Komunitas Digital Gen Z Dorong Kampanye Sosial</h2>
+    <p><em>30 April 2025</em></p>
+    <p>Lewat media sosial, Gen Z aktif mendorong isu sosial seperti kesehatan mental, kesetaraan gender, dan perubahan iklim. Gerakan #AksiAnakMuda viral di berbagai platform sejak awal tahun.</p>
+  </article>
+
+</div>
+
+<footer>
+  &copy; 2025 InfoGenZ.id | Freedom para Gen Z
+</footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  function submitPoll() {
+    const options = document.getElementsByName('poll');
+    let selected = null;
+    for (const option of options) {
+      if (option.checked) {
+        selected = option.value;
+        break;
+      }
+    }
+
+    const resultDiv = document.getElementById('pollResult');
+    if (selected) {
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = `<strong>Terima kasih sudah vote! 🚀</strong><br> Pilihan kamu: <em>${selected}</em>`;
+      document.getElementById('pollForm').style.display = 'none';
+    } else {
+      alert('Pilih salah satu dulu dong 🙂');
+    }
+  }
+</script>
+
 </body>
 </html>
