@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f9f9f9;
+      transition: background-color 0.3s, color 0.3s;
     }
     header {
       background-color: #b80dfcd1;
@@ -38,6 +39,7 @@
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s, color 0.3s;
     }
     article h2 {
       margin-top: 0;
@@ -50,14 +52,55 @@
       position: fixed;
       width: 100%;
       bottom: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode article {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+    body.dark-mode header {
+      background-color: #5c07a4;
+    }
+    body.dark-mode nav {
+      background-color: #0b2c57;
+    }
+    body.dark-mode nav a {
+      color: #ffd700;
+    }
+    body.dark-mode footer {
+      background-color: #333333;
+      color: #ffd700;
+    }
+    .dark-mode-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 8px 12px;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+      transition: background-color 0.3s;
+    }
+    .dark-mode-toggle:hover {
+      background-color: #084298;
     }
   </style>
 </head>
 <body>
 
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
 <header>
   <h1>InfoGenZ.id</h1>
-  <p>Info Trend Gen Z — Scrollable & Relatable</p>
+  <p>Berita Gen Z — Update Cepat, Kayak Stalking Mantan</p>
 </header>
 
 <nav>
@@ -91,6 +134,12 @@
 <footer>
   &copy; 2025 InfoGenZ.id | Freedom para Gen Z
 </footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
 
 </body>
 </html>
